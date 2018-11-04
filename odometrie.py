@@ -42,7 +42,7 @@ def plot(positions, kovP):
         if pos[1] > maxY:
             maxY = pos[1]
 
-    plt.figure(figsize=(16, 9), dpi=120)
+    plt.figure(figsize=(10, 10), dpi=120)
 
     # Create a new subplot from a grid of 1x1
     plt.subplot(1, 1, 1)
@@ -52,7 +52,7 @@ def plot(positions, kovP):
     ax = plt.gca()
 
     for pos in positions:
-        plt.plot(pos[0], pos[1], marker='o', markersize=1, color="red")
+        plt.plot(pos[0], pos[1], marker='o', markersize=2, color="red")
 
         if i > 0:
             eigenValues, eigenVectors = np.linalg.eig(np.linalg.inv(kovP[i][0:2, 0:2]))
@@ -82,16 +82,19 @@ def plot(positions, kovP):
         i = i + 1
 
     # Set x limits
-    plt.xlim(-10, 200)
+    plt.xlim(-0.1, 1.3)
 
     # Set y limits
-    plt.ylim(0, 300)
+    plt.ylim(-0.1, 1.3)
 
     # Set x ticks
     # plt.xticks(np.linspace(1, 100, endpoint=True))
 
-    plt.xticks(np.arange(- 10, 200, 5))
-    plt.yticks(np.arange(- 10, 300, 5))
+    totalMin = min(minX, minY)
+    totalMax = max(maxX, maxY)
+
+    plt.xticks(np.arange(-0.1, 1.3, 0.1))
+    plt.yticks(np.arange(-0.1, 1.3, 0.1))
 
     plt.grid(color='#cccccc', linestyle='-', linewidth=0.5)
 
@@ -225,7 +228,7 @@ def calc(x, y, theta, d, k, path):
 k = 0.001
 
 # Radabstand
-d = 20
+d = 0.20
 
 # Startposition
 x = 0
@@ -234,29 +237,18 @@ theta = 0
 
 # Pfad: 5 Schritte mit jeweils 20 cm vorwaerts mit je einer Drehung von pi/10, dann 5 Schritte mit jeweils
 # 15 cm vorwaerts mit je einer Drehung von pi/10
-path = [
-    (20, math.pi / 20),
-    (20, math.pi / 20),
-    (20, math.pi / 20),
-    (20, math.pi / 20),
-    (20, math.pi / 20),
-    (20, math.pi / 20),
-    (20, math.pi / 20),
-    (20, math.pi / 20),
-    (20, math.pi / 20),
-    (20, math.pi / 20),
-    (20, math.pi / 20),
-    (20, math.pi / 20),
-    (20, math.pi / 20),
-    (20, math.pi / 20),
-    (20, math.pi / 20),
-    (20, math.pi / 20),
-    (20, math.pi / 20),
-    (20, math.pi / 20),
-    (20, math.pi / 20),
-    (20, math.pi / 20),
-    (20, math.pi / 20)
-]
+path = np.array([
+    (0.2, math.pi / 10),
+    (0.2, math.pi / 10),
+    (0.2, math.pi / 10),
+    (0.2, math.pi / 10),
+    (0.2, math.pi / 10),
+    (0.15, math.pi / 10),
+    (0.15, math.pi / 10),
+    (0.15, math.pi / 10),
+    (0.15, math.pi / 10),
+    (0.15, math.pi / 10)
+])
 
 positions, kovariances = calc(x, y, theta, d, k, path)
 
