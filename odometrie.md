@@ -1,3 +1,4 @@
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -60,6 +61,7 @@ def plot(positions, kovP):
 
     plt.show()
     return
+
 
 # calculates the positions and covariance-matrices
 # given a start position with (x, y, theta),
@@ -222,3 +224,5 @@ positions, covariances = calc(x, y, theta, d, k, path)
 
 # plot the result
 plot(positions, covariances)
+```
+![](../../Desktop/myplot.png)
