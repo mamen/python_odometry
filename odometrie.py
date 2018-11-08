@@ -48,8 +48,8 @@ def plot(positions, kovP):
         i = i + 1
 
     # graph-properties
-    plt.xticks(np.arange(-0.3, 3.5, 0.1))
-    plt.yticks(np.arange(-0.3, 3.5, 0.1))
+    plt.xticks(np.arange(-1.5, 3.5, 0.1))
+    plt.yticks(np.arange(-1.5, 3.5, 0.1))
 
     plt.grid(color='#cccccc', linestyle='-', linewidth=0.5)
 
@@ -204,28 +204,18 @@ theta = 0
 # path:
 # 5 steps, each 20 cm forward and a rotation of pi/10,
 # followed by 5 steps with each 15cm forward and a rotation of pi/10
-path = [
-    (0.2, np.pi / 20),
-    (0.2, np.pi / 20),
-    (0.2, np.pi / 20),
-    (0.2, np.pi / 20),
-    (0.2, np.pi / 20),
-    (0.2, np.pi / 20),
-    (0.2, np.pi / 20),
-    (0.2, np.pi / 20),
-    (0.2, np.pi / 20),
-    (0.2, np.pi / 20),
-    (0.2, np.pi / 20),
-    (0.2, np.pi / 20),
-    (0.2, np.pi / 20),
-    (0.2, np.pi / 20),
-    (0.2, np.pi / 20),
-    (0.2, np.pi / 20),
-    (0.2, np.pi / 20),
-    (0.2, np.pi / 20),
-    (0.2, np.pi / 20),
-    (0.2, np.pi / 20)
-]
+path = np.array([
+    (0.2, np.pi / 10),
+    (0.2, np.pi / 10),
+    (0.2, np.pi / 10),
+    (0.2, np.pi / 10),
+    (0.2, np.pi / 10),
+    (0.15, np.pi / 10),
+    (0.15, np.pi / 10),
+    (0.15, np.pi / 10),
+    (0.15, np.pi / 10),
+    (0.15, np.pi / 10)
+])
 
 # calculate the positions and covariances
 positions, covariances = calc(x, y, theta, d, k, path)
