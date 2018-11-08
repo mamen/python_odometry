@@ -48,8 +48,8 @@ def plot(positions, kovP):
         i = i + 1
 
     # graph-properties
-    plt.xticks(np.arange(-1.5, 3.5, 0.1))
-    plt.yticks(np.arange(-1.5, 3.5, 0.1))
+    plt.xticks(np.arange(-0.1, 1.3, 0.1))
+    plt.yticks(np.arange(-0.1, 1.3, 0.1))
 
     plt.grid(color='#cccccc', linestyle='-', linewidth=0.5)
 
