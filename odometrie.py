@@ -48,8 +48,8 @@ def plot(positions, kovP):
         i = i + 1
 
     # graph-properties
-    plt.xticks(np.arange(-0.1, 1.5, 0.1))
-    plt.yticks(np.arange(-0.1, 1.5, 0.1))
+    plt.xticks(np.arange(-0.3, 3.5, 0.1))
+    plt.yticks(np.arange(-0.3, 3.5, 0.1))
 
     plt.grid(color='#cccccc', linestyle='-', linewidth=0.5)
 
@@ -115,8 +115,8 @@ def calc(x, y, theta, d, k, path):
                         theta_n
                     ]),
                     np.array([
-                        delta_s * np.cos(theta_n),
-                        delta_s * np.sin(theta_n),
+                        delta_s * np.cos(theta_n + (delta_theta/2)),
+                        delta_s * np.sin(theta_n + (delta_theta/2)),
                         delta_theta
                     ])
                 )
@@ -130,10 +130,10 @@ def calc(x, y, theta, d, k, path):
         GP = np.array(
             [
                 [
-                    1, 0, -delta_s * np.sin(theta_n)
+                    1, 0, -delta_s * np.sin(theta_n + (delta_theta/2))
                 ],
                 [
-                    0, 1, delta_s * np.cos(theta_n)
+                    0, 1, delta_s * np.cos(theta_n + (delta_theta/2))
                 ],
                 [
                     0, 0, 1
@@ -145,12 +145,12 @@ def calc(x, y, theta, d, k, path):
         GS = np.array(
             [
                 [
-                    (0.5 * np.cos(theta_n)) - ((delta_s / (2 * d)) * np.sin(theta_n)),
-                    (0.5 * np.cos(theta_n)) + ((delta_s / (2 * d)) * np.sin(theta_n))
+                    (0.5 * np.cos(theta_n + (delta_theta/2))) - ((delta_s / (2 * d)) * np.sin(theta_n + (delta_theta/2))),
+                    (0.5 * np.cos(theta_n + (delta_theta/2))) + ((delta_s / (2 * d)) * np.sin(theta_n + (delta_theta/2)))
                 ],
                 [
-                    (0.5 * np.sin(theta_n)) + ((delta_s / (2 * d)) * np.cos(theta_n)),
-                    (0.5 * np.sin(theta_n)) - ((delta_s / (2 * d)) * np.cos(theta_n))
+                    (0.5 * np.sin(theta_n + (delta_theta/2))) + ((delta_s / (2 * d)) * np.cos(theta_n + (delta_theta/2))),
+                    (0.5 * np.sin(theta_n + (delta_theta/2))) - ((delta_s / (2 * d)) * np.cos(theta_n + (delta_theta/2)))
                 ],
                 [
                     1 / d,
@@ -204,18 +204,28 @@ theta = 0
 # path:
 # 5 steps, each 20 cm forward and a rotation of pi/10,
 # followed by 5 steps with each 15cm forward and a rotation of pi/10
-path = np.array([
-    (0.2, np.pi / 10),
-    (0.2, np.pi / 10),
-    (0.2, np.pi / 10),
-    (0.2, np.pi / 10),
-    (0.2, np.pi / 10),
-    (0.15, np.pi / 10),
-    (0.15, np.pi / 10),
-    (0.15, np.pi / 10),
-    (0.15, np.pi / 10),
-    (0.15, np.pi / 10)
-])
+path = [
+    (0.2, np.pi / 20),
+    (0.2, np.pi / 20),
+    (0.2, np.pi / 20),
+    (0.2, np.pi / 20),
+    (0.2, np.pi / 20),
+    (0.2, np.pi / 20),
+    (0.2, np.pi / 20),
+    (0.2, np.pi / 20),
+    (0.2, np.pi / 20),
+    (0.2, np.pi / 20),
+    (0.2, np.pi / 20),
+    (0.2, np.pi / 20),
+    (0.2, np.pi / 20),
+    (0.2, np.pi / 20),
+    (0.2, np.pi / 20),
+    (0.2, np.pi / 20),
+    (0.2, np.pi / 20),
+    (0.2, np.pi / 20),
+    (0.2, np.pi / 20),
+    (0.2, np.pi / 20)
+]
 
 # calculate the positions and covariances
 positions, covariances = calc(x, y, theta, d, k, path)
