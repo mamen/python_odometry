@@ -1,7 +1,7 @@
-# Automone Systeme - Odometrie
+# Odometry for autonomous robots
 
-Berechnung der Pose eines Roboters mittels Odometrie. Zu jedem Schritt wird zusätzlich zur Position (roter Punkt) die Fehlerellipse (blau) veranschaulicht.
+Calculation of the pose of a robot using odometry. For each step, the error ellipse (blue) is illustrated in addition to the position (red dot).
 
-Ergebnis:
+Result:
 
-![Ergebnis](https://raw.githubusercontent.com/mamen/merz_odometrie/master/myplot.png?token=AEEM42H2XTFURZMQU3PNJ53AWCYW2)
+![Result](https://raw.githubusercontent.com/mamen/merz_odometrie/master/myplot.png?token=AEEM42H2XTFURZMQU3PNJ53AWCYW2)
