@@ -4,4 +4,4 @@ Calculation of the pose of a robot using odometry. For each step, the error elli
 
 Result:
 
-![Result](https://raw.githubusercontent.com/mamen/python_odometrie/master/myplot.png)
+![Result](https://github.com/mamen/python_odometrie/raw/master/myplot.png)
